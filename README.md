@@ -1,2 +1,2 @@
 # Python-Testing
-This repository is for Python code development and testing
+https://github.com/CameronAuler/CSDEV.py/wiki
