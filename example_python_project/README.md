@@ -94,6 +94,7 @@ docker-compose up --build
 - Refer to individual `README.md` files in each module for further details.
 
 # Full Project Structure
+```
 example_python_project/
 ├── src/
 │   ├── example_python_project/
@@ -252,4 +253,4 @@ example_python_project/
 ├── Dockerfile
 ├── Makefile
 └── .env
-
+```
