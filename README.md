@@ -7,3 +7,6 @@ This repository is for learning advanced, secure Python development. It contains
 # Upcoming Updates
 - I am currently working on adding tutorial projects for beginner, intermidiate, and expert levels.
 - I will also be adding project for experienced developers who are learning Python as a secondary programming language.
+
+# Best Practice File Structure (*Example Project*)
+[example_python_project](https://github.com/CameronAuler/python-devops/tree/main/example_python_project)
