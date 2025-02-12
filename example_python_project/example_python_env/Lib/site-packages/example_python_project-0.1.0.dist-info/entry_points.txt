@@ -1,0 +1,2 @@
+[console_scripts]
+run = example_python_project.main:main

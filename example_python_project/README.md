@@ -67,8 +67,21 @@ cd example_python_project
 python -m venv venv
 source venv/bin/activate  # On Windows use 'venv\Scripts\activate'
 
+
 # Install dependencies
-pip install -r requirements.txt
+pip install -e .
+
+# Run project
+run
+
+#Admin Dashboard
+http://127.0.0.1:8000/admin/
+
+# Django API
+http://127.0.0.1:8000/api/health/
+
+# Flask API
+http://127.0.0.1:5000/health/
 ```
 
 ### Running the Application
@@ -92,6 +105,13 @@ docker-compose up --build
 - The structure promotes modularity and maintainability.
 - Follow best practices for coding and file organization.
 - Refer to individual `README.md` files in each module for further details.
+
+# Build this repo from scratch
+1. Navigate to root directory
+2. Create the `setup.py`
+3. Create the `pyprojects.toml`
+4. `pip install -e`
+5. `python -m example_python_project.main`
 
 # Full Project Structure
 ```
@@ -254,3 +274,298 @@ example_python_project/
 ├── Makefile
 └── .env
 ```
+
+# Game Plan
+### **Implementation Order & Contents for Each File**
+
+---
+
+## **1. Core Entry Point**
+### `src/example_python_project/main.py`
+- Initialize **configuration (`config/settings.py`)**.
+- Set up **logging (`utils/logger.py`)**.
+- Start **Flask/Django/FastAPI server**.
+- Register **routes (`api/`)**.
+- Load **middleware (`middleware/`)**.
+
+---
+
+## **2. Configuration**
+### `src/example_python_project/config/settings.py`
+- Define **environment variables** (`.env` support).
+- Store **database settings**.
+- Define **API configurations**.
+
+### `src/example_python_project/config/constants.py`
+- Store **global constants** (e.g., `DEFAULT_PAGE_SIZE = 20`).
+
+### `src/example_python_project/config/database_config.py`
+- Configure **SQLAlchemy/Django ORM database connection**.
+- Set up **connection pooling**.
+
+### `src/example_python_project/config/logging_config.py`
+- Define **log levels and output formats**.
+
+### `src/example_python_project/config/cache_config.py`
+- Configure **Redis or in-memory caching**.
+
+### `src/example_python_project/config/search_config.py`
+- Set up **Elasticsearch or other search engine connections**.
+
+### `src/example_python_project/config/environment_variables.py`
+- Load **`.env` variables into the app**.
+
+---
+
+## **3. Utilities**
+### `src/example_python_project/utils/logger.py`
+- Configure **structured logging**.
+- Write logs to **console and files**.
+
+### `src/example_python_project/utils/validators.py`
+- Implement **input validation**.
+
+### `src/example_python_project/utils/response_formatter.py`
+- Standardize **API response format**.
+
+### `src/example_python_project/utils/request_parser.py`
+- Extract **query parameters and JSON body** from requests.
+
+### `src/example_python_project/utils/encryption.py`
+- Implement **password hashing and encryption**.
+
+### `src/example_python_project/utils/date_utils.py`
+- Convert and manipulate **dates and timestamps**.
+
+### `src/example_python_project/utils/env_loader.py`
+- Load and validate **environment variables**.
+
+---
+
+## **4. API Setup**
+### `src/example_python_project/api/__init__.py`
+- Initialize **API module**.
+
+### `src/example_python_project/api/flask_app.py`
+- Define **Flask app**, register routes.
+
+### `src/example_python_project/api/django_app/settings.py`
+- Configure **Django settings**.
+
+### `src/example_python_project/api/django_app/urls.py`
+- Define **Django URL routes**.
+
+### `src/example_python_project/api/django_app/wsgi.py`
+- Entry point for **WSGI applications**.
+
+### `src/example_python_project/api/django_app/asgi.py`
+- Entry point for **ASGI applications**.
+
+### `src/example_python_project/api/django_app/views.py`
+- Implement **Django API views**.
+
+### `src/example_python_project/api/django_app/models.py`
+- Define **Django models**.
+
+### `src/example_python_project/api/django_app/admin.py`
+- Register models in **Django admin**.
+
+---
+
+## **5. Services (Business Logic)**
+### `src/example_python_project/services/authentication_service.py`
+- Handle **user authentication**.
+
+### `src/example_python_project/services/email_service.py`
+- Send **emails via SMTP**.
+
+### `src/example_python_project/services/payment_service.py`
+- Process **payments**.
+
+### `src/example_python_project/services/user_service.py`
+- Manage **user-related operations**.
+
+### `src/example_python_project/services/order_service.py`
+- Handle **orders and transactions**.
+
+### `src/example_python_project/services/search_service.py`
+- Implement **search indexing and querying**.
+
+### `src/example_python_project/services/background_tasks.py`
+- Manage **async background jobs**.
+
+### `src/example_python_project/services/cache_service.py`
+- Provide **caching utilities**.
+
+### `src/example_python_project/services/logging_service.py`
+- Handle **custom logging**.
+
+---
+
+## **6. Database Models**
+### `src/example_python_project/models/base_model.py`
+- Define **base ORM model**.
+
+### `src/example_python_project/models/user_model.py`
+- Define **User model**.
+
+### `src/example_python_project/models/order_model.py`
+- Define **Order model**.
+
+### `src/example_python_project/models/payment_model.py`
+- Define **Payment model**.
+
+### `src/example_python_project/models/product_model.py`
+- Define **Product model**.
+
+### `src/example_python_project/models/search_model.py`
+- Define **Search model**.
+
+---
+
+## **7. Data Repositories (Database Access Layer)**
+### `src/example_python_project/repositories/user_repository.py`
+- Manage **user-related database queries**.
+
+### `src/example_python_project/repositories/order_repository.py`
+- Handle **order-related database interactions**.
+
+### `src/example_python_project/repositories/product_repository.py`
+- Manage **product-related queries**.
+
+### `src/example_python_project/repositories/payment_repository.py`
+- Process **payment transactions**.
+
+### `src/example_python_project/repositories/search_repository.py`
+- Handle **search indexing and queries**.
+
+### `src/example_python_project/repositories/database.py`
+- Manage **database connection pooling**.
+
+### `src/example_python_project/repositories/cache_repository.py`
+- Implement **caching logic**.
+
+---
+
+## **8. Middleware**
+### `src/example_python_project/middleware/authentication_middleware.py`
+- Handle **JWT-based authentication**.
+
+### `src/example_python_project/middleware/logging_middleware.py`
+- Log **incoming API requests**.
+
+### `src/example_python_project/middleware/rate_limiting.py`
+- Implement **rate limiting**.
+
+### `src/example_python_project/middleware/exception_handler.py`
+- Catch and log **application errors**.
+
+---
+
+## **9. CLI Commands**
+### `src/example_python_project/cli/manage.py`
+- Implement **CLI commands**.
+
+### `src/example_python_project/cli/db_migrations.py`
+- Handle **database migrations**.
+
+### `src/example_python_project/cli/cron_jobs.py`
+- Schedule **cron jobs**.
+
+### `src/example_python_project/cli/backup_script.py`
+- Automate **database backups**.
+
+---
+
+## **10. Background Workers**
+### `src/example_python_project/workers/celery_worker.py`
+- Manage **Celery tasks**.
+
+### `src/example_python_project/workers/background_job.py`
+- Define **long-running tasks**.
+
+### `src/example_python_project/workers/async_worker.py`
+- Handle **async task execution**.
+
+---
+
+## **11. Security**
+### `src/example_python_project/security/jwt_auth.py`
+- Implement **JWT authentication**.
+
+### `src/example_python_project/security/permissions.py`
+- Enforce **role-based access control**.
+
+### `src/example_python_project/security/cors.py`
+- Configure **CORS policies**.
+
+### `src/example_python_project/security/csrf_protection.py`
+- Enable **CSRF protection**.
+
+### `src/example_python_project/security/security_utils.py`
+- Implement **security utilities**.
+
+---
+
+## **12. Tests**
+### `tests/api/test_flask_app.py`
+- Test **Flask API endpoints**.
+
+### `tests/api/test_django_app.py`
+- Test **Django API endpoints**.
+
+### `tests/services/test_authentication_service.py`
+- Test **authentication logic**.
+
+### `tests/services/test_payment_service.py`
+- Validate **payment processing**.
+
+### `tests/services/test_search_service.py`
+- Test **search functionality**.
+
+### `tests/models/test_user_model.py`
+- Test **User model**.
+
+### `tests/repositories/test_user_repository.py`
+- Validate **database queries**.
+
+---
+
+## **13. Deployment & Environment**
+### `.env`
+- Store **environment variables**.
+
+### `docker-compose.yml`
+- Define **Docker services**.
+
+### `Dockerfile`
+- Configure **containerized deployment**.
+
+### `Makefile`
+- Automate **build and deployment tasks**.
+
+### `requirements.txt`
+- List **Python dependencies**.
+
+### `setup.py`
+- Define **project packaging**.
+
+### `pyproject.toml`
+- Store **build system settings**.
+
+---
+
+### **Implementation Order:**
+1. **`main.py`** (entry point)
+2. **Configuration (`config/`)**
+3. **Utilities (`utils/`)**
+4. **API setup (`api/`)**
+5. **Services (`services/`)**
+6. **Models (`models/`)**
+7. **Repositories (`repositories/`)**
+8. **Middleware (`middleware/`)**
+9. **CLI (`cli/`)**
+10. **Workers (`workers/`)**
+11. **Security (`security/`)**
+12. **Tests (`tests/`)**
+13. **Deployment (`docker-compose.yml`, `.env`)**

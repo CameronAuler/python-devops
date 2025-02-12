@@ -1,66 +1,69 @@
 # Source Directory (`src/`)
 
 ## Overview
-The `src/` directory contains all source code for the **Example Python Project**. This directory houses the core application logic, structured in a modular and maintainable way, following best practices for enterprise-level Python development.
+The `src/` directory contains all source code for the **Example Python Project**. This directory houses the core application logic, structured in a modular and maintainable way, following best practices for enterprise-level Python development. It serves as the foundation of the project and contains essential components for running the application.
 
 ## Directory Structure
 ```
 src/
 ├── example_python_project/    # Root package for the application
-│   ├── api/                   # API implementations (Flask, Django, etc.)
-│   ├── services/              # Business logic and service layer
-│   ├── models/                # ORM and data models
-│   ├── repositories/          # Database and data access layer
-│   ├── utils/                 # Helper functions and utilities
-│   ├── config/                # Configuration files (settings, constants, etc.)
-│   ├── middleware/            # Middleware functions (logging, authentication, etc.)
-│   ├── cli/                   # CLI scripts (database migrations, cron jobs, etc.)
-│   ├── workers/               # Background workers (Celery, async jobs, etc.)
-│   ├── security/              # Security modules (JWT, CSRF, permissions, etc.)
-│   ├── main.py                # Entry point of the application
-│   └── README.md              # Documentation for the source code
-├── manage.py                  # Management script for Django (if applicable)
-├── wsgi.py                    # WSGI entry point for deployment
-├── asgi.py                    # ASGI entry point for async applications
+│   ├── README.md              # Documentation for the package
+├── manage.py                  # Django management script (if applicable)
+├── wsgi.py                    # Web Server Gateway Interface (WSGI) entry point
+├── asgi.py                    # Asynchronous Server Gateway Interface (ASGI) entry point
 └── README.md                  # This file
 ```
 
-## Modules Explained
-### `api/`
-Contains RESTful API implementations using Flask or Django.
+## Files Explained
+### `example_python_project/`
+This is the main package that contains the core logic of the project, including API implementations, services, models, repositories, utilities, configuration files, and middleware. Refer to its `README.md` for an in-depth explanation of its components.
 
-### `services/`
-Encapsulates business logic, ensuring separation of concerns from controllers and models.
+### `manage.py`
+This script is used primarily for managing a Django-based application. It provides command-line utilities for running the development server, performing database migrations, creating superusers, and managing other administrative tasks.
 
-### `models/`
-Defines the structure of database entities using an ORM (e.g., SQLAlchemy, Django ORM).
+**Usage Examples:**
+```bash
+# Start the Django development server
+python manage.py runserver
 
-### `repositories/`
-Handles database interactions and abstracts direct queries.
+# Run database migrations
+python manage.py migrate
 
-### `utils/`
-Utility functions such as logging, validation, encryption, etc.
+# Create a Django superuser
+python manage.py createsuperuser
+```
 
-### `config/`
-Houses application-wide settings, constants, and configurations.
+### `wsgi.py`
+The **Web Server Gateway Interface (WSGI)** is the standard interface between Python web applications and web servers (such as Gunicorn, uWSGI, or Apache with mod_wsgi). This file is used when deploying the application in a production environment that relies on WSGI-compatible servers.
 
-### `middleware/`
-Contains middleware functions for request processing, authentication, and logging.
+**WSGI is primarily used for synchronous applications** and is the default for Django applications.
 
-### `cli/`
-Command-line interface scripts for database migrations, cron jobs, and maintenance tasks.
+**Usage in Deployment:**
+```bash
+# Running with Gunicorn
+gunicorn example_python_project.wsgi:application --bind 0.0.0.0:8000
+```
 
-### `workers/`
-Handles background task processing using Celery or similar tools.
+### `asgi.py`
+The **Asynchronous Server Gateway Interface (ASGI)** is the next-generation standard for Python web applications, enabling support for **asynchronous processing** and WebSockets. ASGI allows Django or FastAPI applications to handle both synchronous and asynchronous requests.
 
-### `security/`
-Includes security-related modules such as JWT authentication, permissions, and CSRF protection.
+**ASGI is recommended for real-time applications** that require WebSockets, GraphQL subscriptions, or background task execution.
 
-### `main.py`
-The entry point of the application, responsible for initializing and starting the app.
+**Usage in Deployment:**
+```bash
+# Running with Uvicorn (for ASGI applications)
+uvicorn example_python_project.asgi:application --host 0.0.0.0 --port 8000
+```
 
 ## Running the Application
 ```bash
-# Start the application
-python src/example_python_project/main.py
+# Start the application (if using Django or Flask)
+python src/manage.py runserver
 ```
+
+## Additional Notes
+- The structure promotes modularity and maintainability.
+- WSGI is used for synchronous applications, while ASGI is required for handling asynchronous workflows.
+- Ensure you select the appropriate interface (WSGI or ASGI) based on your application's needs.
+- Follow best practices for coding and file organization.
+- Refer to individual `README.md` files in each module for further details.
