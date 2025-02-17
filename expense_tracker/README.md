@@ -70,11 +70,7 @@ pip freeze > requirements.txt
 ```
 Output:
 ```
-fastapi==0.110.0
-uvicorn==0.29.0
-openai==1.3.5
-redis==5.0.1
-pytest==8.0.2
+setuptools==75.8.0
 ...
 ```
 
@@ -88,6 +84,19 @@ pip freeze > requirements.txt  # Save new versions
 ```
 
 # CLI
+The CLI will need the following commands:
+- Add expense ("1" or "add")
+- Remove expense ("2" or "rem")
+- Edit expense ("3" or "edit")
+- Pay expense ("4" or "pay")
+- Exit ("5" or "exit")
 
+# Expense Class
+The expense object requires the following instance attributes:
+- Title: str
+- Category: str
+- Due Date: str
+- Cost: float
+- Paid: boolean
 
-# expense_manager
+# ExpenseManager Class
