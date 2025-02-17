@@ -7,18 +7,9 @@ class Expense:
         """Initialize an expense object with title, category, due date, cost, and paid status."""
         self.title = title  # Store expense title
         self.category = category  # Store expense category
-        self.date_due = self.validate_date(date_due)  # Validate and store the due date
+        self.date_due = date_due # store the due date
         self.cost = round(float(cost), 2)  # Convert cost to float and round to 2 decimal places
         self.paid = paid  # Store expense status as boolean (True = Paid, False = Unpaid)
-
-    @staticmethod
-    def validate_date(date_str: str) -> str:
-        """Validates and formats date as MM/DD/YYYY."""
-        try:
-            formatted_date = datetime.strptime(date_str, "%m/%d/%Y").strftime("%m/%d/%Y")  
-            return formatted_date  # Return formatted date
-        except ValueError:
-            raise ValueError("Invalid date format. Use MM/DD/YYYY.")  # Raise an error for invalid date
 
     def mark_paid(self):
         """Marks the expense as paid."""

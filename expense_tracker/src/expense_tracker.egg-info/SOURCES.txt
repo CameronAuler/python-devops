@@ -8,3 +8,14 @@ src/expense_tracker.egg-info/SOURCES.txt
 src/expense_tracker.egg-info/dependency_links.txt
 src/expense_tracker.egg-info/entry_points.txt
 src/expense_tracker.egg-info/top_level.txt
+src/expense_tracker/cli/__init__.py
+src/expense_tracker/cli/menu.py
+src/expense_tracker/models/__init__.py
+src/expense_tracker/models/expense.py
+src/expense_tracker/repositories/__init__.py
+src/expense_tracker/repositories/json_handler.py
+src/expense_tracker/services/__init__.py
+src/expense_tracker/services/expense_manager.py
+src/expense_tracker/utils/__init__.py
+src/expense_tracker/utils/logger.py
+src/expense_tracker/utils/validator.py
