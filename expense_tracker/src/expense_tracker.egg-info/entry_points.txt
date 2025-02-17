@@ -1,0 +1,2 @@
+[console_scripts]
+run = expense_tracker.main:main
