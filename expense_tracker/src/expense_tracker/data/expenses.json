@@ -1,0 +1,9 @@
+[
+    {
+        "title": "Groceries",
+        "category": "Food",
+        "date_due": "2/28/25",
+        "cost": 127.99,
+        "paid": true
+    }
+]
