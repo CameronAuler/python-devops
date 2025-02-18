@@ -13,11 +13,12 @@ DIVIDER = "-" * DIVIDER_LENGTH
 
 def clear_screen():
     """Clears the terminal screen after a short delay to give an updating effect."""
-    print("\033c", end="")
+    print("\033c", end="")  # Ensures no content is left over from the last CLI state
     os.system('cls' if os.name == 'nt' else 'clear')  # Windows -> cls | macOS/Linux -> clear
 
 def get_user_choice():
     """Gets and validates user input, allowing numbers or command names."""
+    # Defines all the possible choices the user can select
     valid_choices = {
         "1": 1, "add": 1, 
         "2": 2, "rem": 2, 
@@ -27,7 +28,7 @@ def get_user_choice():
         "6": 6, "exit": 6
     }
 
-    while True:
+    while True: # Infinite Loop to check for a valid user input
         choice = input("Enter your choice (1-6 or command name): ").strip().lower()
         if choice in valid_choices:
             return valid_choices[choice]
@@ -177,16 +178,16 @@ def filter_expenses_prompt():
     
     print(DIVIDER)
 
-    # ✅ Calculate totals for filtered expenses
+    # Calculate totals for filtered expenses
     total_cost = sum(expense.cost for expense in filtered_expenses)
     remaining_cost = sum(expense.cost for expense in filtered_expenses if not expense.paid)
 
-    # ✅ Align the values with the "Cost" column while keeping the labels left-aligned
+    # Align the values with the "Cost" column while keeping the labels left-aligned
     print(f"{'Total:':<63} ${total_cost:<10.2f}")  
     print(f"{'Remaining Total (Unpaid):':<63} ${remaining_cost:<10.2f}")
     print(DIVIDER)
 
-    # ✅ Wait for user input before returning to the main menu
+    # Wait for user input before returning to the main menu
     input("\nPress Enter to return to the main menu...")
 
 
@@ -195,8 +196,8 @@ def display_header():
     print("\n" + "=" * DIVIDER_LENGTH)  # Extended width to avoid line breaks
     print(f"{'Expense Tracker'.center(DIVIDER_LENGTH)}")  # Center title properly
     print("=" * DIVIDER_LENGTH)
-    print("|    1. Add Expense (add)   |   2. Remove Expense (rem)        |   3. Edit Expense (edit)   |")
-    print("|    4. Pay Expense (pay)   |   5. Filter Expenses (filter)    |   6. Exit (exit)           |")
+    print("|    1. Add Expense (add)   |   2. Remove Expense (rem)        |   3. Edit Expense (edit)   |")  # Top line of commands
+    print("|    4. Pay Expense (pay)   |   5. Filter Expenses (filter)    |   6. Exit (exit)           |")  # Bottom Line of Commands
     print("=" * DIVIDER_LENGTH)
 
 def display_expenses():
