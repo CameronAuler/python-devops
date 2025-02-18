@@ -5,5 +5,33 @@
         "date_due": "2/28/25",
         "cost": 127.99,
         "paid": true
+    },
+    {
+        "title": "Rent",
+        "category": "Housing",
+        "date_due": "02/18/2025",
+        "cost": 1200.0,
+        "paid": false
+    },
+    {
+        "title": "Phone",
+        "category": "Tech",
+        "date_due": "02/24/2025",
+        "cost": 45.0,
+        "paid": false
+    },
+    {
+        "title": "Eating Out",
+        "category": "Food",
+        "date_due": "3/15/25",
+        "cost": 45.37,
+        "paid": true
+    },
+    {
+        "title": "Test",
+        "category": "Test",
+        "date_due": "02/28/2025",
+        "cost": 34.0,
+        "paid": true
     }
 ]
