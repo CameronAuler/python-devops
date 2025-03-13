@@ -16,7 +16,7 @@ To enhance functionality, developers will integrate **date and time operations**
    - Mac/Linux:
       - `python3 -m venv my-env`
 
-### 5. If you are using VSCode then you can select the interpreter in the bottom right of the window if it is not auto selected on creation. If you are creating this project strictly through the terminal, then you need to activate the vertual environment with the commands...
+### 5. If you are using VSCode then you may have to select the interpreter in the bottom right of the window if it is not auto selected on creation then actiate the venv. If you are creating this project strictly through the terminal, then you only need to activate the vertual environment with the commands...
    - Windows: `.\my-env\Scripts\activate`
    - Mac/Linux: `source my-env/bin/activate`
 ### 6. Install `setuptools` and `wheel` using the command `pip install setuptools wheel`.
