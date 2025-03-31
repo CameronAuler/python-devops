@@ -1,0 +1,20 @@
+[project]
+name = "python-devops"
+version = "0.1.0"
+description = "A repository for learning basic, intermediate, and advanced Python."
+authors = [
+    {name = "Auler, Cameron",email = "Cameron.Auler@Staples.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+dynamic = ["dependencies"]
+
+[tool.poetry.dependencies]
+tqdm = "^4.67.1"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project.scripts]

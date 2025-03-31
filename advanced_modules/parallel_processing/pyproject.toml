@@ -1,0 +1,25 @@
+[project]
+name = "par-pro"
+version = "0.1.0"
+description = "Advanced Python module covering multiprocessing and threading."
+authors = [
+    {name = "Auler, Cameron",email = "Cameron.Auler@Staples.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+dynamic = ["dependencies"]
+packages = [{ include = "par_pro", from = "src" }]
+
+[tool.poetry.dependencies]
+tqdm = "^4.67.1"
+
+
+[tool.poetry.group.dev.dependencies]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project.scripts]
+start = "par_pro.__main__:main"

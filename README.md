@@ -10,3 +10,18 @@ This repository is for learning advanced, secure Python development. It contains
 
 # Best Practice File Structure (*Example Project*)
 [example_python_project](https://github.com/CameronAuler/python-devops/tree/main/example_python_project)
+
+# Setting Up a Python Project
+1. install poetry
+```
+curl -sSL https://install.python-poetry.org | python3 -
+```
+> If you installed Python using Homebrew, you must use the command above instead of `pip install poetry`
+
+2. Initialize Your Project
+run the following command and fill out the prompts accordingly to generate your `pyproject.toml` file.
+```
+poetry init
+```
+
+3. Build Your File structure
