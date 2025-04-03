@@ -45,15 +45,13 @@ def run_network_simulation_use_case():
 
     # --- THREADED EXECUTION ---
     threaded_time, _ = time_it(
-        "Threaded processing (threaded_map)",
-        threaded_map,
-        fn=simulated_api_call,      # Task function
-        data=data,                  # Iterable of delays
-        max_workers=10,             # Use 10 threads
-        async_mode=True,            # Run asynchronously (as_completed)
-        show_progress=False,        # Disable tqdm progress bar
-        handle_errors=True          # Catch task-level exceptions
-    )
+    "Threaded processing (threaded_map)",
+    threaded_map,
+    simulated_api_call,
+    data,
+    max_workers=10
+)
+
 
     # --- EXECUTION TIME SUMMARY ---
     print("\n=== EXECUTION TIME COMPARISON ===")

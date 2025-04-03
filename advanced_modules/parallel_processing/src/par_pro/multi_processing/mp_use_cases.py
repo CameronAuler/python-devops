@@ -58,16 +58,13 @@ def run_prime_computation_use_case():
 
     # --- MULTIPROCESSING EXECUTION ---
     parallel_time, _ = time_it(
-        "Multiprocessing (parallel_map)",
-        parallel_map,
-        factor_semi_prime,
-        data,
-        processes=cpu_count(),
-        chunk_size=5,
-        async_mode=False,
-        show_progress=False,
-        handle_errors=True
-    )
+    "Multiprocessing (parallel_map)",
+    parallel_map,
+    factor_semi_prime,
+    data,
+    processes=cpu_count()
+)
+
 
     # --- TIME COMPARISON SUMMARY ---
     print("\n=== EXECUTION TIME COMPARISON ===")
